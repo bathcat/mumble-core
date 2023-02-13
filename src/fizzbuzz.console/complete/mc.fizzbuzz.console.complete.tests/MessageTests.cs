@@ -11,14 +11,14 @@ public class MessageTests
     public void FromIndexShouldReturnFizzFor33()
     {
         var actual = Message.FromIndex(33);
-        Assert.AreEqual("fizz", actual);
+        Assert.AreEqual("Fizz", actual);
     }
 
     [TestMethod()]
     public void FromIndexShouldReturnBuzzFor35()
     {
         var actual = Message.FromIndex(35);
-        Assert.AreEqual("buzz", actual);
+        Assert.AreEqual("Buzz", actual);
     }
 
     [TestMethod()]
