@@ -1,6 +1,6 @@
-﻿using System;
+﻿namespace MumbleCore.FizzBuzz.Console.Complete;
 
-namespace MumbleCore.FizzBuzz.Complete;
+using System;
 
 internal class Program
 {

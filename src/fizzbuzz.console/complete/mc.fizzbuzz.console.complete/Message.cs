@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MumbleCore.FizzBuzz.Complete;
+namespace MumbleCore.FizzBuzz.Console.Complete;
 
 public class Message
 {
