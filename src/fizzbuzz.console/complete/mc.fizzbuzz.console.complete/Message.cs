@@ -6,8 +6,8 @@ public class Message
 {
     public static string FromIndex(byte index) => index switch
     {
-        _ when (index == 0) => throw new ArgumentException("Index must be greater than 0."),
-        _ when (index > 100) => throw new ArgumentException("Index must be less than 101."),
+        0 => throw new ArgumentException("Index must be greater than 0."),
+        > 100 => throw new ArgumentException("Index must be less than 101."),
         _ when (index % 15 == 0) => "FizzBuzz",
         _ when (index % 3 == 0) => "Fizz",
         _ when (index % 5 == 0) => "Buzz",
@@ -23,17 +23,17 @@ public class Message
 
         if (index % 15 == 0)
         {
-            return "fizzbuzz";
+            return "FizzBuzz";
         }
 
         if (index % 3 == 0)
         {
-            return "fizz";
+            return "Fizz";
         }
 
         if (index % 5 == 0)
         {
-            return "buzz";
+            return "Buzz";
         }
 
         return index.ToString();
