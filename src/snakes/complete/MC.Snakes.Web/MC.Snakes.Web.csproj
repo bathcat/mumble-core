@@ -9,8 +9,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\mc.snakes.business.complete\mc.snakes.business.complete.csproj" />
-    <ProjectReference Include="..\mc.snakes.core.complete\mc.snakes.core.complete.csproj" />
+    <ProjectReference Include="..\MC.Snakes.Business\MC.Snakes.Business.csproj" />
+    <ProjectReference Include="..\MC.Snakes.Core\MC.Snakes.Core.csproj" />
   </ItemGroup>
 
 

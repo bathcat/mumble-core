@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\mc.snakes.core.complete\mc.snakes.core.complete.csproj" />
+    <ProjectReference Include="..\MC.Snakes.Core\MC.Snakes.Core.csproj" />
   </ItemGroup>
 
 </Project>

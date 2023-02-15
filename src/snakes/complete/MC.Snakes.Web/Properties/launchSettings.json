@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "Acme.Snakes.Web": {
+    "MC.Snakes.Web": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "api/snakes",
