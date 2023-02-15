@@ -94,21 +94,6 @@ public readonly record struct USingle : IFloatingPoint<USingle>
     public static USingle operator +(USingle value)
         => value;
 
-    public int GetExponentByteCount()
-        => throw new NotImplementedException();
-
-    public int GetExponentShortestBitLength()
-        => throw new NotImplementedException();
-
-    public int GetSignificandBitLength()
-        => throw new NotImplementedException();
-
-    public int GetSignificandByteCount()
-        => throw new NotImplementedException();
-
-
-
-
     public int CompareTo(USingle other)
         => this.Value.CompareTo(other.Value);
 
@@ -117,7 +102,6 @@ public readonly record struct USingle : IFloatingPoint<USingle>
 
     public static bool IsEvenInteger(USingle value)
         => Single.IsEvenInteger(value.Value);
-
 
     public static bool IsFinite(USingle value)
         => Single.IsFinite(value.Value);
@@ -233,6 +217,17 @@ public readonly record struct USingle : IFloatingPoint<USingle>
 
 
 
+    public int GetExponentByteCount()
+        => throw new NotImplementedException();
+
+    public int GetExponentShortestBitLength()
+        => throw new NotImplementedException();
+
+    public int GetSignificandBitLength()
+        => throw new NotImplementedException();
+
+    public int GetSignificandByteCount()
+        => throw new NotImplementedException();
 
     public bool TryWriteExponentBigEndian(Span<byte> destination, out int bytesWritten)
     {
