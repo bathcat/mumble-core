@@ -11,36 +11,37 @@ using System.Numerics;
 /// <remarks>
 /// Inspired by: https://stackoverflow.com/questions/7305785/does-c-sharp-have-an-unsigned-double
 /// </remarks>
-public readonly record struct UFloat : IFloatingPoint<UFloat>
+public readonly record struct USingle : IFloatingPoint<USingle>
 {
-    public readonly float Value;
+    public readonly Single Value;
 
-    public static UFloat E
-        => new(float.E);
+    public static USingle E
+        => new(Single.E);
 
-    public static UFloat Pi
-        => new(float.Pi);
+    public static USingle Pi
+        => new(Single.Pi);
 
-    public static UFloat Tau
-        => new(float.Tau);
+    public static USingle Tau
+        => new(Single.Tau);
 
-    public static UFloat NegativeOne => throw new NotImplementedException();
+    public static USingle NegativeOne
+        => throw new NotImplementedException();
 
-    public static UFloat One
+    public static USingle One
         => new(1);
 
     public static int Radix => throw new NotImplementedException();
 
-    public static UFloat Zero
+    public static USingle Zero
         => new(0);
 
-    public static UFloat AdditiveIdentity
+    public static USingle AdditiveIdentity
         => new(0);
 
-    public static UFloat MultiplicativeIdentity
+    public static USingle MultiplicativeIdentity
         => new(1);
 
-    public UFloat(float value)
+    public USingle(float value)
     {
         if (value < 0)
         {
@@ -49,48 +50,48 @@ public readonly record struct UFloat : IFloatingPoint<UFloat>
         Value = value;
     }
 
-    public static implicit operator float(UFloat uf)
+    public static implicit operator float(USingle uf)
         => uf.Value;
 
-    public static implicit operator UFloat(float f)
+    public static implicit operator USingle(float f)
         => new(f);
 
-    public static bool operator <(UFloat a, UFloat b)
+    public static bool operator <(USingle a, USingle b)
         => a.Value < b.Value;
 
-    public static bool operator >(UFloat a, UFloat b)
+    public static bool operator >(USingle a, USingle b)
         => a.Value > b.Value;
 
-    public static bool operator <=(UFloat a, UFloat b)
+    public static bool operator <=(USingle a, USingle b)
         => a.Value <= b.Value;
 
-    public static bool operator >=(UFloat a, UFloat b)
+    public static bool operator >=(USingle a, USingle b)
         => a.Value >= b.Value;
 
-    public static UFloat operator %(UFloat left, UFloat right)
+    public static USingle operator %(USingle left, USingle right)
         => new(left.Value % right.Value);
 
-    public static UFloat operator +(UFloat left, UFloat right)
+    public static USingle operator +(USingle left, USingle right)
         => new(left.Value + right.Value);
 
-    public static UFloat operator --(UFloat value)
+    public static USingle operator --(USingle value)
         => throw new NotImplementedException();
 
-    public static UFloat operator /(UFloat left, UFloat right)
+    public static USingle operator /(USingle left, USingle right)
         => new(left.Value / right.Value);
 
-    public static UFloat operator ++(UFloat value)
+    public static USingle operator ++(USingle value)
         => throw new NotImplementedException();
 
-    public static UFloat operator *(UFloat left, UFloat right)
+    public static USingle operator *(USingle left, USingle right)
         => new(left.Value * right.Value);
-    public static UFloat operator -(UFloat left, UFloat right)
+    public static USingle operator -(USingle left, USingle right)
         => new(left.Value - right.Value);
 
-    public static UFloat operator -(UFloat value)
+    public static USingle operator -(USingle value)
         => throw new NotImplementedException();
 
-    public static UFloat operator +(UFloat value)
+    public static USingle operator +(USingle value)
         => value;
 
     public int GetExponentByteCount()
@@ -108,93 +109,93 @@ public readonly record struct UFloat : IFloatingPoint<UFloat>
 
 
 
-    public int CompareTo(UFloat other)
+    public int CompareTo(USingle other)
         => this.Value.CompareTo(other.Value);
 
-    public static UFloat Abs(UFloat value)
+    public static USingle Abs(USingle value)
         => value;
 
-    public static bool IsEvenInteger(UFloat value)
+    public static bool IsEvenInteger(USingle value)
         => Single.IsEvenInteger(value.Value);
 
 
-    public static bool IsFinite(UFloat value)
+    public static bool IsFinite(USingle value)
         => Single.IsFinite(value.Value);
 
     public int CompareTo(object? obj) => obj switch
     {
-        UFloat objAsUFloat => this.Value.CompareTo(objAsUFloat.Value),
+        USingle objAsUFloat => this.Value.CompareTo(objAsUSingle.Value),
         _ => this.Value.CompareTo(obj)
     };
 
-    public static bool IsInfinity(UFloat value)
+    public static bool IsInfinity(USingle value)
         => Single.IsInfinity(value.Value);
 
-    public static bool IsInteger(UFloat value)
+    public static bool IsInteger(USingle value)
         => Single.IsInteger(value.Value);
 
-    public static bool IsNaN(UFloat value)
+    public static bool IsNaN(USingle value)
         => Single.IsNaN(value.Value);
 
-    public static bool IsNegative(UFloat value)
+    public static bool IsNegative(USingle value)
         => false;
 
-    public static bool IsNegativeInfinity(UFloat value)
+    public static bool IsNegativeInfinity(USingle value)
         => false;
 
-    public static bool IsNormal(UFloat value)
+    public static bool IsNormal(USingle value)
         => Single.IsNormal(value.Value);
 
-    public static bool IsOddInteger(UFloat value)
+    public static bool IsOddInteger(USingle value)
         => Single.IsOddInteger(value.Value);
-    public static bool IsPositive(UFloat value)
+    public static bool IsPositive(USingle value)
         => Single.IsPositive(value.Value);
-    public static bool IsPositiveInfinity(UFloat value)
+    public static bool IsPositiveInfinity(USingle value)
         => Single.IsPositiveInfinity(value.Value);
-    public static bool IsRealNumber(UFloat value)
+    public static bool IsRealNumber(USingle value)
         => Single.IsRealNumber(value.Value);
 
-    public static bool IsSubnormal(UFloat value)
+    public static bool IsSubnormal(USingle value)
         => Single.IsSubnormal(value.Value);
-    public static bool IsZero(UFloat value)
+    public static bool IsZero(USingle value)
         => value.Value == 0;
 
-    public static UFloat MaxMagnitude(UFloat x, UFloat y)
+    public static USingle MaxMagnitude(USingle x, USingle y)
         => new(Single.MaxMagnitude(x.Value, y.Value));
 
-    public static UFloat MaxMagnitudeNumber(UFloat x, UFloat y)
+    public static USingle MaxMagnitudeNumber(USingle x, USingle y)
         => new(Single.MaxMagnitudeNumber(x.Value, y.Value));
 
-    public static UFloat MinMagnitude(UFloat x, UFloat y)
+    public static USingle MinMagnitude(USingle x, USingle y)
         => new(Single.MinMagnitude(x.Value, y.Value));
 
-    public static UFloat MinMagnitudeNumber(UFloat x, UFloat y)
+    public static USingle MinMagnitudeNumber(USingle x, USingle y)
         => new(Single.MinMagnitudeNumber(x.Value, y.Value));
 
-    public static UFloat Parse(ReadOnlySpan<char> s, NumberStyles style, IFormatProvider? provider)
+    public static USingle Parse(ReadOnlySpan<char> s, NumberStyles style, IFormatProvider? provider)
         => new(Single.Parse(s, style, provider));
 
-    public static UFloat Parse(string s, NumberStyles style, IFormatProvider? provider)
+    public static USingle Parse(string s, NumberStyles style, IFormatProvider? provider)
         => new(Single.Parse(s, style, provider));
     public string ToString(string? format, IFormatProvider? formatProvider)
         => this.Value.ToString(format, formatProvider);
 
-    public static UFloat Parse(ReadOnlySpan<char> s, IFormatProvider? provider)
+    public static USingle Parse(ReadOnlySpan<char> s, IFormatProvider? provider)
         => new(Single.Parse(s, provider));
 
-    public static UFloat Parse(string s, IFormatProvider? provider)
+    public static USingle Parse(string s, IFormatProvider? provider)
         => new(Single.Parse(s, provider));
 
-    public static bool IsComplexNumber(UFloat value)
+    public static bool IsComplexNumber(USingle value)
     => false;
 
-    public static bool IsImaginaryNumber(UFloat value)
+    public static bool IsImaginaryNumber(USingle value)
         => false;
 
-    public static UFloat Round(UFloat x, int digits, MidpointRounding mode)
+    public static USingle Round(USingle x, int digits, MidpointRounding mode)
         => new(Single.Round(x.Value, digits, mode));
 
-    public static bool TryParse(ReadOnlySpan<char> s, NumberStyles style, IFormatProvider? provider, [MaybeNullWhen(false)] out UFloat result)
+    public static bool TryParse(ReadOnlySpan<char> s, NumberStyles style, IFormatProvider? provider, [MaybeNullWhen(false)] out USingle result)
     {
         float value = 0;
         var success = Single.TryParse(s, style, provider, out value);
@@ -202,7 +203,7 @@ public readonly record struct UFloat : IFloatingPoint<UFloat>
         return success;
     }
 
-    public static bool TryParse([NotNullWhen(true)] string? s, NumberStyles style, IFormatProvider? provider, [MaybeNullWhen(false)] out UFloat result)
+    public static bool TryParse([NotNullWhen(true)] string? s, NumberStyles style, IFormatProvider? provider, [MaybeNullWhen(false)] out USingle result)
     {
         float value = 0;
         var success = Single.TryParse(s, style, provider, out value);
@@ -213,7 +214,7 @@ public readonly record struct UFloat : IFloatingPoint<UFloat>
     public bool TryFormat(Span<char> destination, out int charsWritten, ReadOnlySpan<char> format, IFormatProvider? provider)
         => this.Value.TryFormat(destination, out charsWritten, format, provider);
 
-    public static bool TryParse(ReadOnlySpan<char> s, IFormatProvider? provider, [MaybeNullWhen(false)] out UFloat result)
+    public static bool TryParse(ReadOnlySpan<char> s, IFormatProvider? provider, [MaybeNullWhen(false)] out USingle result)
     {
         float value = 0;
         var success = Single.TryParse(s, provider, out value);
@@ -221,7 +222,7 @@ public readonly record struct UFloat : IFloatingPoint<UFloat>
         return success;
     }
 
-    public static bool TryParse([NotNullWhen(true)] string? s, IFormatProvider? provider, [MaybeNullWhen(false)] out UFloat result)
+    public static bool TryParse([NotNullWhen(true)] string? s, IFormatProvider? provider, [MaybeNullWhen(false)] out USingle result)
     {
         float value = 0;
         var success = Single.TryParse(s, provider, out value);
@@ -253,35 +254,35 @@ public readonly record struct UFloat : IFloatingPoint<UFloat>
         throw new NotImplementedException();
     }
 
-    public static bool IsCanonical(UFloat value)
+    public static bool IsCanonical(USingle value)
     {
         throw new NotImplementedException();
     }
 
-    static bool INumberBase<UFloat>.TryConvertFromChecked<TOther>(TOther value, out UFloat result)
+    static bool INumberBase<USingle>.TryConvertFromChecked<TOther>(TOther value, out USingle result)
     {
         throw new NotImplementedException();
     }
 
-    static bool INumberBase<UFloat>.TryConvertFromSaturating<TOther>(TOther value, out UFloat result)
+    static bool INumberBase<USingle>.TryConvertFromSaturating<TOther>(TOther value, out USingle result)
     {
         throw new NotImplementedException();
     }
 
-    static bool INumberBase<UFloat>.TryConvertFromTruncating<TOther>(TOther value, out UFloat result)
+    static bool INumberBase<USingle>.TryConvertFromTruncating<TOther>(TOther value, out USingle result)
     {
         throw new NotImplementedException();
     }
 
-    static bool INumberBase<UFloat>.TryConvertToChecked<TOther>(UFloat value, out TOther result)
+    static bool INumberBase<USingle>.TryConvertToChecked<TOther>(USingle value, out TOther result)
     {
         throw new NotImplementedException();
     }
-    static bool INumberBase<UFloat>.TryConvertToSaturating<TOther>(UFloat value, out TOther result)
+    static bool INumberBase<USingle>.TryConvertToSaturating<TOther>(USingle value, out TOther result)
     {
         throw new NotImplementedException();
     }
-    static bool INumberBase<UFloat>.TryConvertToTruncating<TOther>(UFloat value, out TOther result)
+    static bool INumberBase<USingle>.TryConvertToTruncating<TOther>(USingle value, out TOther result)
     {
         throw new NotImplementedException();
     }
