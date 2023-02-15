@@ -108,8 +108,8 @@ public readonly record struct USingle : IFloatingPoint<USingle>
 
     public int CompareTo(object? obj) => obj switch
     {
-        USingle objAsUFloat => this.Value.CompareTo(objAsUSingle.Value),
-        _ => this.Value.CompareTo(obj)
+        USingle objAsUSingle => this.Value.CompareTo(objAsUSingle.Value),
+        _ => this.Value.CompareTo(obj),
     };
 
     public static bool IsInfinity(USingle value)
