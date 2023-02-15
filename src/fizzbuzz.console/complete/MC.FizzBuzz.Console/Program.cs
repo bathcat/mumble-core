@@ -1,4 +1,4 @@
-﻿namespace MumbleCore.FizzBuzz.Console.Complete;
+﻿namespace MC.FizzBuzz.Console;
 
 using System;
 

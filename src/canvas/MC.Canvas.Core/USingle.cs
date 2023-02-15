@@ -126,7 +126,6 @@ public readonly record struct USingle : IFloatingPoint<USingle>
 
     public static bool IsNegativeInfinity(USingle value)
         => false;
-
     public static bool IsNormal(USingle value)
         => Single.IsNormal(value.Value);
 
@@ -161,6 +160,7 @@ public readonly record struct USingle : IFloatingPoint<USingle>
 
     public static USingle Parse(string s, NumberStyles style, IFormatProvider? provider)
         => new(Single.Parse(s, style, provider));
+
     public string ToString(string? format, IFormatProvider? formatProvider)
         => this.Value.ToString(format, formatProvider);
 
@@ -171,7 +171,7 @@ public readonly record struct USingle : IFloatingPoint<USingle>
         => new(Single.Parse(s, provider));
 
     public static bool IsComplexNumber(USingle value)
-    => false;
+        => false;
 
     public static bool IsImaginaryNumber(USingle value)
         => false;
@@ -181,16 +181,14 @@ public readonly record struct USingle : IFloatingPoint<USingle>
 
     public static bool TryParse(ReadOnlySpan<char> s, NumberStyles style, IFormatProvider? provider, [MaybeNullWhen(false)] out USingle result)
     {
-        float value = 0;
-        var success = Single.TryParse(s, style, provider, out value);
+        var success = Single.TryParse(s, style, provider, out float value);
         result = new(value);
         return success;
     }
 
     public static bool TryParse([NotNullWhen(true)] string? s, NumberStyles style, IFormatProvider? provider, [MaybeNullWhen(false)] out USingle result)
     {
-        float value = 0;
-        var success = Single.TryParse(s, style, provider, out value);
+        var success = Single.TryParse(s, style, provider, out float value);
         result = new(value);
         return success;
     }
@@ -200,16 +198,14 @@ public readonly record struct USingle : IFloatingPoint<USingle>
 
     public static bool TryParse(ReadOnlySpan<char> s, IFormatProvider? provider, [MaybeNullWhen(false)] out USingle result)
     {
-        float value = 0;
-        var success = Single.TryParse(s, provider, out value);
+        var success = Single.TryParse(s, provider, out float value);
         result = new(value);
         return success;
     }
 
     public static bool TryParse([NotNullWhen(true)] string? s, IFormatProvider? provider, [MaybeNullWhen(false)] out USingle result)
     {
-        float value = 0;
-        var success = Single.TryParse(s, provider, out value);
+        var success = Single.TryParse(s, provider, out float value);
         result = new(value);
         return success;
     }

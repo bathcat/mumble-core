@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\mc.fizzbuzz.console.complete\mc.fizzbuzz.console.complete.csproj" />
+    <ProjectReference Include="..\MC.FizzBuzz.Console\MC.FizzBuzz.Console.csproj" />
   </ItemGroup>
 
 </Project>

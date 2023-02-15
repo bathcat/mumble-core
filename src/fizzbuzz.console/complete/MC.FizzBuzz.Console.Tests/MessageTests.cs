@@ -1,5 +1,5 @@
 ﻿
-namespace MumbleCore.FizzBuzz.Console.Complete.Tests;
+namespace MC.FizzBuzz.Console.Tests;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
