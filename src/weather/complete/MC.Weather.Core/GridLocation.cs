@@ -1,5 +1,4 @@
-﻿using System.Net;
-using System.Net.Http.Json;
+﻿using System.Net.Http.Json;
 
 namespace MC.Weather.Core;
 
@@ -27,11 +26,9 @@ public readonly record struct GridLocation
 
     public static async Task<GridLocation> FromPosition(Position position, HttpMessageHandler handler)
     {
-        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-
-        var client = new HttpClient(handler);
-        client.DefaultRequestHeaders.Add("Accept", "*/*");
+        using var client = new HttpClient(handler);
         client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36");
+
         var uri = GetUri(position);
         using var response = await client.GetAsync(uri);
         response.EnsureSuccessStatusCode();

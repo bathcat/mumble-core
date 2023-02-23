@@ -8,6 +8,39 @@ namespace MC.Weather.Core.Tests
     [TestClass()]
     public class PositionTests
     {
+        /// <summary>
+        /// Inspired by:
+        ///     https://stackoverflow.com/questions/36425008/mocking-httpclient-in-unit-tests
+        /// </summary>
+        [TestMethod()]
+        public async Task GetCurrent_Should_Parse_Response()
+        {
+
+            var handlerMock = new Mock<HttpMessageHandler>();
+            handlerMock
+               .Protected()
+               .Setup<Task<HttpResponseMessage>>(
+                  "SendAsync",
+                  ItExpr.Is<HttpRequestMessage>(r => r.RequestUri == new Uri("http://www.geoplugin.net/json.gp")),
+                  ItExpr.IsAny<CancellationToken>()
+               )
+               .ReturnsAsync(new HttpResponseMessage()
+               {
+                   StatusCode = HttpStatusCode.OK,
+                   Content = new StringContent(responseString),
+               })
+               .Verifiable();
+
+            //
+            var result = await Position.GetCurrent(handlerMock.Object);
+
+            //
+            const double tolerance = .0001;
+            Assert.AreEqual(39.7388, result.Latitude, tolerance);
+            Assert.AreEqual(-104.9868, result.Longitude, tolerance);
+
+        }
+
         private const string responseString = """
             {
               "geoplugin_request":"185.238.231.169",
@@ -37,37 +70,5 @@ namespace MC.Weather.Core.Tests
             }
             """;
 
-        /// <summary>
-        /// Inspired by:
-        ///     https://stackoverflow.com/questions/36425008/mocking-httpclient-in-unit-tests
-        /// </summary>
-        [TestMethod()]
-        public async Task GetCurrent_Should_Parse_Response()
-        {
-
-            var handlerMock = new Mock<HttpMessageHandler>(MockBehavior.Strict);
-            handlerMock
-               .Protected()
-               .Setup<Task<HttpResponseMessage>>(
-                  "SendAsync",
-                  ItExpr.Is<HttpRequestMessage>(r => r.RequestUri == new Uri("http://www.geoplugin.net/json.gp")),
-                  ItExpr.IsAny<CancellationToken>()
-               )
-               .ReturnsAsync(new HttpResponseMessage()
-               {
-                   StatusCode = HttpStatusCode.OK,
-                   Content = new StringContent(responseString),
-               })
-               .Verifiable();
-
-            //
-            var result = await Position.GetCurrent(handlerMock.Object);
-
-            //
-            const double tolerance = .0001;
-            Assert.AreEqual(39.7388, result.Latitude, tolerance);
-            Assert.AreEqual(-104.9868, result.Longitude, tolerance);
-
-        }
     }
 }

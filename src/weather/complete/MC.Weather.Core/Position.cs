@@ -21,7 +21,7 @@ public record struct Position
 
     public static async Task<Position> GetCurrent(HttpMessageHandler handler)
     {
-        var client = new HttpClient(handler);
+        using var client = new HttpClient(handler);
         using var response = await client.GetAsync(uri);
         response.EnsureSuccessStatusCode();
         var dto = await response.Content.ReadFromJsonAsync<GeopluginDTO>();

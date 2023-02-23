@@ -24,8 +24,7 @@ public readonly record struct WeatherReport(
 
     public static async Task<WeatherReport> FromGridLocation(GridLocation location, HttpMessageHandler handler)
     {
-        var client = new HttpClient(handler);
-        client.DefaultRequestHeaders.Add("Accept", "*/*");
+        using var client = new HttpClient(handler);
         client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36");
 
         var uri = GetUri(location);
