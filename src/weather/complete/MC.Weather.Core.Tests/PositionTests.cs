@@ -50,7 +50,7 @@ namespace MC.Weather.Core.Tests
                .Protected()
                .Setup<Task<HttpResponseMessage>>(
                   "SendAsync",
-                  ItExpr.IsAny<HttpRequestMessage>(),
+                  ItExpr.Is<HttpRequestMessage>(r => r.RequestUri == new Uri("http://www.geoplugin.net/json.gp")),
                   ItExpr.IsAny<CancellationToken>()
                )
                .ReturnsAsync(new HttpResponseMessage()
