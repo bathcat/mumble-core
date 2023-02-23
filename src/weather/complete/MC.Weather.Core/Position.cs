@@ -34,5 +34,8 @@ public record struct Position
     }
 
     public static Task<Position> GetCurrent()
-        => GetCurrent(new HttpClientHandler());
+    {
+        using var handler = new HttpClientHandler();
+        return GetCurrent(handler);
+    }
 }

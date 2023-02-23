@@ -36,7 +36,10 @@ public readonly record struct WeatherReport(
     }
 
     public static Task<WeatherReport> FromGridLocation(GridLocation location)
-        => FromGridLocation(location, new HttpClientHandler());
+    {
+        using var handler = new HttpClientHandler();
+        return FromGridLocation(location, handler);
+    }
 
 
     public static async Task<WeatherReport> GetReport()

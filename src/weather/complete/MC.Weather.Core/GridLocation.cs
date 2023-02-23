@@ -45,5 +45,9 @@ public readonly record struct GridLocation
     }
 
     public static Task<GridLocation> FromPosition(Position position)
-        => FromPosition(position, new HttpClientHandler());
+    {
+        using var handler = new HttpClientHandler();
+        return FromPosition(position, handler);
+    }
+
 }
