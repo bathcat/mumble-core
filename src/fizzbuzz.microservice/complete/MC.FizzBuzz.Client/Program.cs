@@ -6,7 +6,7 @@ internal class Program
 {
     static async Task<int> AsyncMain(string[] args)
     {
-        var client = new HttpClient();
+        using var client = new HttpClient();
         using var response = await client.GetAsync("http://localhost:5013/messages");
         var messages = await response.Content.ReadFromJsonAsync<IEnumerable<string>>();
         foreach (var message in messages!)
