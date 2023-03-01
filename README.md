@@ -1,6 +1,7 @@
 # Mumble Core
 Learn to be productive in .NET Core development, reduce ramp-up time and be equipped with best practices so .NET Core work is more effective and better architected.
 
+---
 
 ## Outline
 
@@ -33,3 +34,16 @@ Learn to be productive in .NET Core development, reduce ramp-up time and be equi
 * Lab: Creating a cross-platform desktop application in .NET Core
 * Demonstration of best practices in .NET Core development
 
+---
+
+## Setup
+
+### Minimal
+* [Git](https://git-scm.com/downloads)
+* [.NET 7 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/7.0)
+* Text Editor
+
+### Nice to Have
+* [Visual Studio 2022](https://visualstudio.microsoft.com/vs/)
+* [SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
+* [PowerShell](https://learn.microsoft.com/en-us/powershell/)
