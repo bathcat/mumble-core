@@ -14,10 +14,6 @@ public class SnakeRepository : IRepository<Snake, Guid>
 
     private DatabaseFacade Database => this.context.Database!;
 
-    ///////  Create  /////////
-
-
-
 
     public async Task<Snake> Create(Snake original)
     {

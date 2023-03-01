@@ -44,6 +44,6 @@ Learn to be productive in .NET Core development, reduce ramp-up time and be equi
 * Text Editor
 
 ### Nice to Have
-* [Visual Studio 2022](https://visualstudio.microsoft.com/vs/)
+* [Visual Studio](https://visualstudio.microsoft.com/vs/)
 * [SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
 * [PowerShell](https://learn.microsoft.com/en-us/powershell/)

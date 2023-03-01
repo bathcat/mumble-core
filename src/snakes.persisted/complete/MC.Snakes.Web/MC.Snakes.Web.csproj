@@ -5,12 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.3" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\MC.Snakes.Business\MC.Snakes.Business.csproj" />
     <ProjectReference Include="..\MC.Snakes.Core\MC.Snakes.Core.csproj" />
+    <ProjectReference Include="..\MC.Snakes.Data\MC.Snakes.Data.csproj" />
   </ItemGroup>
 
 

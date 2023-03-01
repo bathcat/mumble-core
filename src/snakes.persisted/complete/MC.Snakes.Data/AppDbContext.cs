@@ -5,13 +5,17 @@ using Microsoft.EntityFrameworkCore.Design;
 namespace MC.Snakes.Data;
 public class AppDbContext : DbContext
 {
-    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
+    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+    {
+
+    }
 
     public DbSet<Snake>? Snakes { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
+
         builder.HasDefaultSchema("App");
 
         builder.Entity<Snake>(b =>
