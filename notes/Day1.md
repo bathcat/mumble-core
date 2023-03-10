@@ -4,6 +4,7 @@
 1. Housekeeping
 1. Review
 1. Finish ASP.NET Core conversation
+  - Monolith, Micro, Nano
 1. Lab: FizzBuzz API
 
 
@@ -22,3 +23,13 @@
 7. What's the point of `required`?
 8. What are 3 ways of matching inside a `switch`?
 9. What's middleware?
+
+
+## Micro and Nano and Mono
+* Worst case scenario: Distributed monolith
+  - Ski resort
+* Discipline
+* Scalability v. Overhead
+* Deployment
+* Relational integrity
+* Simplicity v. Complexity
