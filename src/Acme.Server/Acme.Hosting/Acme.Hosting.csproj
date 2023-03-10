@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Acme.Business\Acme.Business.csproj" />
+    <ProjectReference Include="..\Acme.Core\Acme.Core.csproj" />
+    <ProjectReference Include="..\Acme.Data\Acme.Data.csproj" />
+    <ProjectReference Include="..\Acme.Identity\Acme.Identity.csproj" />
+  </ItemGroup>
+
+</Project>
