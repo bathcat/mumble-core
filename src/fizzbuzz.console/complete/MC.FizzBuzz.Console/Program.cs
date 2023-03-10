@@ -8,7 +8,8 @@ internal class Program
     {
         for (byte b = 1; b < 101; b++)
         {
-            Console.WriteLine(Message.FromIndex(b));
+            Console.WriteLine(Message.FromIndex(b).Message);
         }
+        Console.ReadLine();
     }
 }

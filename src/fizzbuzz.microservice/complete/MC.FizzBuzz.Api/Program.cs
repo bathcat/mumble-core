@@ -4,6 +4,7 @@ var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
 app.MapGet("/messages/{index}", Message.FromIndex);
+app.MapPut("/messages/{index}", Message.UpdateMessage);
 
 app.MapGet("/messages",
     () => Enumerable.Range(1, 100)

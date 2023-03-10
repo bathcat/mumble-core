@@ -11,4 +11,10 @@ public static class Message
         _ when (index % 5 == 0) => "Buzz",
         _ => index.ToString(),
     };
+
+    public static void UpdateMessage(byte index)
+    {
+        System.Console.WriteLine("Updating message");
+    }
+
 }

@@ -2,16 +2,18 @@
 
 namespace MC.FizzBuzz.Console;
 
+
+public record BuzzResponse(int Index, string Message);
 public class Message
 {
-    public static string FromIndex(byte index) => index switch
+    public static BuzzResponse FromIndex(byte index) => index switch
     {
-        0 => throw new ArgumentException("Index must be greater than 0."),
+        < 1 => throw new ArgumentException("Index must be greater than 0."),
         > 100 => throw new ArgumentException("Index must be less than 101."),
-        _ when (index % 15 == 0) => "FizzBuzz",
-        _ when (index % 3 == 0) => "Fizz",
-        _ when (index % 5 == 0) => "Buzz",
-        _ => index.ToString(),
+        _ when (index % 15 == 0) => new BuzzResponse(index, "FizzBuzz"),
+        _ when (index % 3 == 0) => new BuzzResponse(index, "Fizz"),
+        _ when (index % 5 == 0) => new BuzzResponse(index, "Buzz"),
+        _ => new BuzzResponse(index, index.ToString()),
     };
 
     public static string FromIndexOldSchool(byte index)
