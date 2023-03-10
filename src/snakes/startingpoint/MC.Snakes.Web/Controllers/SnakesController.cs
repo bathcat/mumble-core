@@ -1,7 +1,4 @@
-﻿using MC.Snakes.Core;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using System;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
 namespace MC.Snakes.Web.Controllers;
@@ -9,44 +6,17 @@ namespace MC.Snakes.Web.Controllers;
 [Route("api/[controller]")]
 public class SnakesController : Controller
 {
-    private readonly IRepository<Snake, Guid> repo;
-    private readonly ILogger<SnakesController> logger;
 
-    public SnakesController(IRepository<Snake, Guid> repo, ILogger<SnakesController> logger)
+
+    public SnakesController()
     {
-        this.repo = repo;
-        this.logger = logger;
+
     }
 
     [HttpGet]
-    public IEnumerable<Snake> Get()
+    public IEnumerable<string> Get()
     {
-        this.logger.LogInformation("Getting all snakes. Hopefully there aren't too many...");
-        return this.repo.Get();
+        return new string[] { "Sven", "Steven", "Sandy" };
     }
 
-
-    [HttpGet("{id}")]
-    public Snake Get(Guid id)
-        => this.repo.Get(id);
-
-    [HttpPost]
-    public Snake Post([FromBody] Snake newSnake)
-        => this.repo.Create(newSnake);
-
-    [HttpPut("{id}")]
-    public Snake Put(Guid id, [FromBody] Snake updated)
-    {
-        if (updated.ID != id)
-        {
-            this.logger.LogWarning("Weird put. It's probably ok though.");
-            updated.ID = id;
-        }
-        return this.repo.Update(updated);
-    }
-
-
-    [HttpDelete("{id}")]
-    public Snake Delete(Guid id)
-        => this.repo.Remove(id);
 }
